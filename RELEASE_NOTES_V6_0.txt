@@ -1,0 +1,14 @@
+AutoRent Pro FX V6.0 - Clients PRO
+
+Nouveautés:
+- Gestion des clients transformée en fiche complète.
+- Ajout des informations personnelles: sexe, naissance, nationalité, ville, email, profession.
+- Ajout des pièces officielles: CIN + expiration, permis + délivrance/expiration, passeport, n° d'entrée.
+- Ajout contact d'urgence et observations.
+- Ajout chemins documents: CIN recto/verso, permis recto/verso, passeport, photo client.
+- Recherche client améliorée: nom, CIN, téléphone, permis, passeport, email, ville.
+- Migration database/upgrade_v6_0.sql sans suppression de données.
+
+Important:
+- La disponibilité reste calculée uniquement à partir des contrats/réservations.
+- Gestion véhicules ne doit pas contenir DISPONIBLE comme état manuel.

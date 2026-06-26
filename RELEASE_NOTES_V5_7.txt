@@ -1,0 +1,11 @@
+AutoRent Pro FX V5.7 - CONTRAT PDF OFFICIEL
+
+- Remplacement de l'export HTML par un vrai PDF.
+- Bouton: Imprimer contrat PDF.
+- Ouverture automatique du PDF dans le lecteur PDF Windows.
+- Mise en page inspirée du modèle scanné: entête société, bloc véhicule, conducteur 1/2, départ véhicule, observations, signatures.
+- Ajout de la dépendance Apache PDFBox.
+
+Important:
+- Maven téléchargera PDFBox au premier lancement si nécessaire.
+- Aucun changement destructif de base de données.

@@ -1,0 +1,12 @@
+AutoRent Pro FX V5.4 - Disponibilité par dates
+
+Nouveautés:
+- La disponibilité d'une voiture n'est plus décidée seulement depuis Gestion Véhicules.
+- Avant la création ou modification d'un contrat, le programme vérifie les contrats existants de la même voiture.
+- Une voiture déjà louée/réservée entre date départ et date retour ne peut pas être relouée sur la même période.
+- Bouton 'Vérifier disponibilité' dans la fenêtre de contrat.
+- Message clair indiquant le contrat conflictuel.
+- Planning reste basé sur les contrats réels.
+
+Règle utilisée:
+vehicle_id identique + statut bloquant + start_date <= nouvelle date retour + end_date >= nouvelle date départ.

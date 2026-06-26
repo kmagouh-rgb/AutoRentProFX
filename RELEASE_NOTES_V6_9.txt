@@ -1,0 +1,13 @@
+AutoRent Pro FX V6.9 - Dossier Actions
+
+Nouveautés:
+- Dossier Location amélioré.
+- Boutons dans le dossier: PDF dossier, Paiement, Retour, Clôturer.
+- Ajout paiement directement depuis le dossier.
+- Clôture du contrat depuis le dossier.
+- Statut retour aujourd'hui depuis le dossier.
+- PDF récapitulatif du dossier avec client, véhicule, période, paiements et timeline.
+- Timeline plus détaillée.
+
+Base de données:
+- Pas de changement obligatoire.

@@ -1,0 +1,7 @@
+AutoRent Pro FX V6.7 - Contrats Workflow PRO
+
+- Statuts professionnels: Réservé, Confirmé, Véhicule livré, En cours, Retour aujourd’hui, Clôturé, Annulé.
+- Couleurs sur les lignes de contrats selon l’étape.
+- Disponibilité bloquée par les statuts qui occupent réellement la voiture.
+- Fermeture du contrat passe à CLOTURE au lieu de FERME.
+- Pas de modification du statut manuel du véhicule.

@@ -1,0 +1,7 @@
+AutoRent Pro FX V5.9 - Disponibilité couleurs
+
+- Couleur verte pour les voitures DISPONIBLES selon la période choisie.
+- Couleur rouge pour les voitures OCCUPÉES par contrat ou réservation.
+- Couleur orange pour les voitures bloquées techniquement: MAINTENANCE / HORS_SERVICE / VENDUE.
+- Badge couleur dans la colonne Disponibilité dates.
+- La disponibilité reste calculée uniquement depuis Contrats + Réservations + période choisie.

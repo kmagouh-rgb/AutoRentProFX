@@ -1,0 +1,10 @@
+AutoRentProFX V6.3 - FLEET CARDS PRO
+
+Nouveautés:
+- Design Fleet Cards PRO.
+- Image véhicule agrandie au clic.
+- Filtres: marque, carburant, boîte, état technique, avec photo uniquement.
+- Menu actions sur chaque carte.
+- Occupation annuelle estimée affichée en progress bar.
+- Fiche véhicule améliorée.
+- Rappel: la disponibilité réelle reste calculée dans l'onglet Disponibilité selon Contrats + Réservations.

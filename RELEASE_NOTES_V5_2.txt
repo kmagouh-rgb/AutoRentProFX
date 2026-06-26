@@ -1,0 +1,14 @@
+AutoRent Pro FX V5.2 - CONTINUE FROM V5.1
+
+Base officielle: AutoRentProFX_v5_1_FLEET_ALERTS fourni par Kamal.
+
+Nouveautés:
+- V5.2 construite directement sur V5.1, sans revenir vers l'ancienne V5.0.
+- Planning connecté à la base de données: véhicules + contrats réels.
+- Choix de période: 7 / 14 / 21 / 30 jours.
+- Export HTML du contrat sélectionné depuis l'écran Contrats.
+- Titre et version mis à jour: V5.2 Planning & Contract Print.
+- run.bat amélioré: détecte Maven 3.9.16 ou 3.9.15.
+
+Important:
+- Ce package garde les modules V5.1: Fleet Cards, Alertes, Outils, Backup/Export, Documents, Maintenance, Dépenses.

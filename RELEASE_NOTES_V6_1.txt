@@ -1,0 +1,17 @@
+AutoRent Pro FX V6.1 - Fleet Cards Photos
+
+Nouveautés:
+- Ajout du champ Photo véhicule dans Gestion des véhicules.
+- Fleet Cards affiche maintenant une vraie photo pour chaque voiture.
+- Si aucune photo n'est définie, une carte placeholder propre s'affiche.
+- Ajout filtres dans Fleet Cards: Statut et Carburant.
+- Amélioration du design des cartes véhicules.
+- Ajout colonne photo_path à la table vehicles.
+- Ajout migration: database/upgrade_v6_1.sql.
+- Correction CustomersView: Node/Parent compile fix.
+
+Utilisation:
+1) Pour une base existante, exécuter database/upgrade_v6_1.sql dans phpMyAdmin.
+2) Dans Gestion des véhicules, ouvrir Ajouter/Modifier.
+3) Choisir Photo véhicule > Parcourir.
+4) Ouvrir Fleet Cards pour voir les photos.

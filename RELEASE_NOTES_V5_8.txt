@@ -1,0 +1,9 @@
+AutoRent Pro FX V5.8 - Workflow Location
+
+Nouveautés:
+- Nouveau flux de travail dans Disponibilité: choisir date départ / date retour puis créer le contrat directement avec la voiture disponible.
+- La voiture occupée par contrat/réservation est bloquée sur la même période.
+- Bouton: Créer contrat avec voiture sélectionnée.
+- Rappel: Gestion véhicules ne détermine plus la disponibilité, seulement l'état technique.
+- Ajout du fichier database/import_vehicules_kamal_autorent.sql pour importer la flotte fournie par Kamal.
+- upgrade_v5_8.sql sans suppression des données.

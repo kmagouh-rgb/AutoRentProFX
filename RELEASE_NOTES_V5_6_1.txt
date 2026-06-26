@@ -1,0 +1,11 @@
+AutoRent Pro FX V5.6.1 - NO MANUAL DISPONIBILITÉ FIX
+
+Corrections:
+- Titre de l'application corrigé de V5.5 vers V5.6.1.
+- Nouveau véhicule: suppression réelle des choix DISPONIBLE / LOUEE / RESERVEE.
+- Gestion véhicules: statut renommé en Situation technique.
+- Base démo: status par défaut = EN_SERVICE.
+- Migration upgrade_v5_6_1.sql pour convertir les anciennes valeurs.
+
+Règle métier:
+La disponibilité d'une voiture se calcule uniquement depuis Contrats + Réservations selon la période demandée.

@@ -1,0 +1,16 @@
+AutoRent Pro FX V5.5 - DISPONIBILITÉ AVANCÉE
+
+Nouveau:
+- Nouveau module: Disponibilité par période.
+- Vérification des voitures disponibles entre date de départ et date de retour.
+- La disponibilité est calculée depuis les contrats ET les réservations.
+- Affichage des contrats/réservations bloquants.
+- Filtre: afficher seulement les voitures disponibles.
+
+Corrections:
+- Correction du formulaire Paiement dans ContractsView.
+- Correction du contrôle de chevauchement pour inclure les réservations.
+- Titre application mis à jour V5.5.
+
+Règle métier:
+Une voiture déjà liée à un contrat ou une réservation entre deux dates ne peut pas être louée dans la même période.

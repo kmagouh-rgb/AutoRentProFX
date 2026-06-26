@@ -1,0 +1,3 @@
+-- AutoRent Pro FX V5.7
+-- No destructive database changes.
+-- Contract PDF generation is handled in Java code using PDFBox.

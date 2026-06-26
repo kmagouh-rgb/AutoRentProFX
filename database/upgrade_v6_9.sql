@@ -1,0 +1,3 @@
+-- AutoRent Pro FX V6.9 - Dossier Actions
+-- Aucun changement obligatoire de schéma.
+-- Ce fichier existe seulement pour garder l'historique des versions.

@@ -1,0 +1,3 @@
+-- V6.6 Fiche 360 Véhicule
+-- Pas de changement obligatoire de base de données.
+-- Cette version utilise les tables existantes: vehicles, contracts, maintenance, expenses.

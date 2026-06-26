@@ -1,0 +1,12 @@
+AutoRent Pro FX - WORK BASE v6.9.1
+
+Base utilisée:
+- AutoRentProFX_v6_9_DOSSIER_ACTIONS
+
+Correction incluse:
+- CustomersView.java corrigé: erreur Node cannot be converted to Parent.
+
+Important:
+- Continuer le développement réel à partir de cette base.
+- Ne pas remplacer ContractsView.java par CustomersView.java.
+- Pour lancer: run.bat ou mvn javafx:run depuis le dossier contenant pom.xml.

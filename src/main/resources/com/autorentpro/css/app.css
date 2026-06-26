@@ -1,0 +1,472 @@
+.root {
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-background-color: #f4f7fb;
+}
+.login-root { -fx-background-color: linear-gradient(to right, #10233f 0%, #10233f 42%, #f4f7fb 42%, #f4f7fb 100%); }
+.login-left { -fx-pref-width: 460; }
+.login-title { -fx-text-fill: white; -fx-font-size: 42px; -fx-font-weight: bold; }
+.login-subtitle { -fx-text-fill: #cbd5e1; -fx-font-size: 16px; }
+.login-version { -fx-text-fill: #38bdf8; -fx-font-size: 14px; -fx-font-weight: bold; }
+.login-card, .content-card, .stat-card {
+    -fx-background-color: white;
+    -fx-background-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.12), 20, 0.2, 0, 8);
+}
+.app-root { -fx-background-color: #f4f7fb; }
+.sidebar { -fx-background-color: #0f172a; }
+.logo { -fx-text-fill: white; -fx-font-size: 21px; -fx-font-weight: bold; -fx-padding: 0 0 18 0; }
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #dbeafe;
+    -fx-alignment: center-left;
+    -fx-font-size: 14px;
+    -fx-padding: 12 14;
+    -fx-background-radius: 10;
+}
+.nav-button:hover { -fx-background-color: #1e293b; -fx-text-fill: white; }
+.sidebar-user { -fx-text-fill: #93c5fd; -fx-font-size: 12px; }
+.topbar { -fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(15,23,42,0.08), 10, 0, 0, 2); }
+.top-title { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #0f172a; }
+.pill { -fx-background-color: #e0f2fe; -fx-text-fill: #0369a1; -fx-padding: 7 12; -fx-background-radius: 20; -fx-font-weight: bold; }
+.page-title { -fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #0f172a; }
+.section-title { -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #0f172a; }
+.muted { -fx-text-fill: #64748b; -fx-font-size: 14px; }
+.error-label { -fx-text-fill: #dc2626; -fx-font-size: 12px; }
+.primary-button {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 11 16;
+    -fx-background-radius: 10;
+}
+.primary-button:hover { -fx-background-color: #1d4ed8; }
+.secondary-button {
+    -fx-background-color: #e2e8f0;
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: bold;
+    -fx-padding: 10 14;
+    -fx-background-radius: 10;
+}
+.danger-button {
+    -fx-background-color: #fee2e2;
+    -fx-text-fill: #b91c1c;
+    -fx-font-weight: bold;
+    -fx-padding: 10 14;
+    -fx-background-radius: 10;
+}
+.stat-title { -fx-text-fill: #64748b; -fx-font-size: 13px; -fx-font-weight: bold; }
+.stat-value { -fx-text-fill: #0f172a; -fx-font-size: 28px; -fx-font-weight: bold; }
+.stat-subtitle { -fx-text-fill: #94a3b8; -fx-font-size: 12px; }
+.search-field, .text-field, .password-field, .combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+}
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.08), 16, 0.15, 0, 6);
+}
+.table-view .column-header-background { -fx-background-color: #eff6ff; }
+.table-view .column-header, .table-view .filler { -fx-background-color: transparent; -fx-size: 42; }
+.table-row-cell { -fx-cell-size: 42; }
+.table-row-cell:selected { -fx-background-color: #dbeafe; -fx-text-fill: #0f172a; }
+.dialog-pane { -fx-background-color: #f8fafc; }
+
+/* V4.4 UI PLUS */
+.icon-button {
+    -fx-background-color: #e2e8f0;
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 8 12;
+}
+.global-search {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #dbeafe;
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+    -fx-padding: 9 16;
+    -fx-max-width: 430;
+}
+.planning-card {
+    -fx-background-color: white;
+    -fx-background-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.12), 20, 0.2, 0, 8);
+}
+.planning-header {
+    -fx-background-color: #eff6ff;
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8;
+}
+.planning-car {
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: bold;
+    -fx-padding: 8 12;
+    -fx-min-width: 140;
+}
+.planning-cell {
+    -fx-background-color: #f1f5f9;
+    -fx-background-radius: 8;
+}
+.bar-green { -fx-background-color: #bbf7d0; }
+.bar-red { -fx-background-color: #fecaca; }
+.bar-orange { -fx-background-color: #fed7aa; }
+.bar-blue { -fx-background-color: #bfdbfe; }
+.content-card > .label:first-child { -fx-font-weight: bold; -fx-font-size: 16px; }
+
+/* V4.9 GLOBAL SEARCH */
+.data-table .table-cell {
+    -fx-padding: 8 10;
+}
+.search-field:focused, .global-search:focused {
+    -fx-border-color: #2563eb;
+    -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.18), 10, 0.2, 0, 2);
+}
+
+/* V5.1 FLEET & ALERTS */
+.vehicle-card {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.12), 20, 0.2, 0, 8);
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 20;
+}
+.vehicle-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.22), 24, 0.25, 0, 10);
+    -fx-border-color: #93c5fd;
+}
+.vehicle-icon { -fx-font-size: 42px; }
+.status-disponible, .status-louee, .status-maintenance, .status-reservee {
+    -fx-font-weight: bold;
+    -fx-padding: 6 12;
+    -fx-background-radius: 18;
+}
+.status-disponible { -fx-background-color: #dcfce7; -fx-text-fill: #166534; }
+.status-louee { -fx-background-color: #fee2e2; -fx-text-fill: #991b1b; }
+.status-maintenance { -fx-background-color: #ffedd5; -fx-text-fill: #9a3412; }
+.status-reservee { -fx-background-color: #dbeafe; -fx-text-fill: #1d4ed8; }
+
+/* V5.3 ANALYTICS */
+.chart {
+    -fx-background-color: white;
+    -fx-background-radius: 18;
+    -fx-padding: 14;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.10), 18, 0.16, 0, 6);
+}
+.chart-title { -fx-text-fill: #0f172a; -fx-font-size: 16px; -fx-font-weight: bold; }
+.axis-label { -fx-text-fill: #64748b; }
+
+
+/* V5.9 DISPONIBILITÉ COULEURS */
+.data-table .table-row-cell.row-available {
+    -fx-background-color: #ecfdf5;
+}
+.data-table .table-row-cell.row-available:selected {
+    -fx-background-color: #86efac;
+}
+.data-table .table-row-cell.row-busy {
+    -fx-background-color: #fef2f2;
+}
+.data-table .table-row-cell.row-busy:selected {
+    -fx-background-color: #fca5a5;
+}
+.data-table .table-row-cell.row-blocked {
+    -fx-background-color: #fff7ed;
+}
+.data-table .table-row-cell.row-blocked:selected {
+    -fx-background-color: #fdba74;
+}
+.availability-pill-cell {
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-background-radius: 18;
+    -fx-padding: 7 12;
+}
+.availability-disponible {
+    -fx-background-color: #bbf7d0;
+    -fx-text-fill: #166534;
+}
+.availability-occupee {
+    -fx-background-color: #fecaca;
+    -fx-text-fill: #991b1b;
+}
+.availability-blocked {
+    -fx-background-color: #fed7aa;
+    -fx-text-fill: #9a3412;
+}
+
+/* V5.8 - Availability workflow */
+.row-available { -fx-background-color: #f0fff4; }
+.row-busy { -fx-background-color: #fff5f5; }
+
+/* V6.1 - Fleet Cards Photos */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #f5f8fc;
+}
+.page-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #071633;
+}
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #071633;
+}
+.muted {
+    -fx-text-fill: #516079;
+    -fx-font-size: 12px;
+}
+.search-field, .global-search {
+    -fx-background-color: white;
+    -fx-border-color: #d9e3f0;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-padding: 10px 14px;
+    -fx-font-size: 13px;
+}
+.filter-combo {
+    -fx-background-color: white;
+    -fx-border-color: #d9e3f0;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-padding: 6px 10px;
+    -fx-pref-width: 160px;
+}
+.primary-button {
+    -fx-background-color: #0f79d8;
+    -fx-text-fill: white;
+    -fx-font-weight: 800;
+    -fx-background-radius: 12px;
+    -fx-padding: 10px 16px;
+}
+.secondary-button {
+    -fx-background-color: #edf3fb;
+    -fx-text-fill: #10223d;
+    -fx-font-weight: 700;
+    -fx-background-radius: 12px;
+    -fx-padding: 9px 14px;
+}
+.danger-button {
+    -fx-background-color: #ffe3e3;
+    -fx-text-fill: #c92020;
+    -fx-font-weight: 800;
+    -fx-background-radius: 12px;
+    -fx-padding: 9px 14px;
+}
+.fleet-tile-pane {
+    -fx-padding: 2px 4px 20px 2px;
+}
+.fleet-stats-row {
+    -fx-padding: 2px 0 4px 0;
+}
+.fleet-stat-card {
+    -fx-background-color: white;
+    -fx-border-color: #dfe7f1;
+    -fx-border-radius: 16px;
+    -fx-background-radius: 16px;
+    -fx-padding: 14px 20px;
+    -fx-min-width: 170px;
+    -fx-effect: dropshadow(gaussian, rgba(16, 34, 61, 0.08), 14, 0, 0, 5);
+}
+.fleet-stat-icon {
+    -fx-font-size: 24px;
+}
+.fleet-stat-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #071633;
+}
+.vehicle-photo-card {
+    -fx-background-color: white;
+    -fx-border-color: #dfe7f1;
+    -fx-border-radius: 16px;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(16, 34, 61, 0.10), 18, 0, 0, 6);
+    -fx-overflow: hidden;
+}
+.vehicle-card-body {
+    -fx-background-color: white;
+    -fx-background-radius: 0 0 16px 16px;
+}
+.vehicle-card-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #071633;
+}
+.vehicle-photo-area {
+    -fx-background-color: linear-gradient(to bottom right, #e8eef7, #f9fbff);
+    -fx-background-radius: 16px 16px 0 0;
+    -fx-border-radius: 16px 16px 0 0;
+}
+.vehicle-photo-placeholder {
+    -fx-pref-width: 255px;
+    -fx-pref-height: 150px;
+    -fx-background-color: linear-gradient(to bottom right, #edf4ff, #f7fbff);
+}
+.vehicle-photo-icon {
+    -fx-font-size: 44px;
+    -fx-text-fill: #9db2c8;
+}
+.plate-badge {
+    -fx-background-color: white;
+    -fx-border-color: #cdd9e8;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 4px 10px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #10223d;
+}
+.price-badge {
+    -fx-background-color: #eef7ff;
+    -fx-text-fill: #0871c8;
+    -fx-background-radius: 8px;
+    -fx-padding: 5px 9px;
+    -fx-font-weight: 800;
+}
+.pill, .status-disponible, .status-maintenance, .status-louee, .status-vendue {
+    -fx-background-radius: 999px;
+    -fx-padding: 5px 10px;
+    -fx-font-size: 12px;
+    -fx-font-weight: 900;
+}
+.status-disponible {
+    -fx-background-color: #35b940;
+    -fx-text-fill: white;
+}
+.status-maintenance {
+    -fx-background-color: #ff8a00;
+    -fx-text-fill: white;
+}
+.status-louee {
+    -fx-background-color: #404b5a;
+    -fx-text-fill: white;
+}
+.status-vendue {
+    -fx-background-color: #6b7280;
+    -fx-text-fill: white;
+}
+.stat-green { -fx-border-color: #bfe9c3; }
+.stat-orange { -fx-border-color: #ffd5a3; }
+.stat-red { -fx-border-color: #ffc1c1; }
+.stat-blue { -fx-border-color: #b7d9ff; }
+.data-table {
+    -fx-background-color: white;
+    -fx-border-color: #dfe7f1;
+    -fx-border-radius: 14px;
+    -fx-background-radius: 14px;
+}
+
+/* V6.2 - Fleet cards interactions */
+.vehicle-photo-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.28), 20, 0.20, 0, 6);
+    -fx-translate-y: -2;
+    -fx-cursor: hand;
+}
+.vehicle-card-body .button {
+    -fx-font-size: 11px;
+    -fx-padding: 6 10 6 10;
+}
+
+/* V6.3 - Fleet Cards PRO */
+.vehicle-pro-card {
+    -fx-background-color: white;
+    -fx-border-color: #dfe7f1;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(16, 34, 61, 0.13), 20, 0, 0, 7);
+}
+.vehicle-pro-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.30), 24, 0.20, 0, 8);
+    -fx-translate-y: -3;
+    -fx-cursor: hand;
+}
+.brand-icon {
+    -fx-background-color: #0f172a;
+    -fx-text-fill: white;
+    -fx-font-weight: 900;
+    -fx-font-size: 16px;
+    -fx-alignment: center;
+    -fx-min-width: 34px;
+    -fx-min-height: 34px;
+    -fx-background-radius: 11px;
+}
+.card-menu-button {
+    -fx-background-color: #f1f5f9;
+    -fx-text-fill: #10223d;
+    -fx-font-weight: 900;
+    -fx-background-radius: 12px;
+    -fx-padding: 5px 9px;
+}
+.mini-badge {
+    -fx-background-color: #f1f5f9;
+    -fx-text-fill: #334155;
+    -fx-background-radius: 8px;
+    -fx-padding: 4px 9px;
+    -fx-font-weight: 800;
+}
+.mini-info-box {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #edf2f7;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-padding: 8px 10px;
+    -fx-min-width: 112px;
+}
+.mini-info-value {
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: 900;
+    -fx-font-size: 12px;
+}
+.availability-hint {
+    -fx-background-color: #eff6ff;
+    -fx-text-fill: #1d4ed8;
+    -fx-background-radius: 10px;
+    -fx-padding: 7px 9px;
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+}
+.occupation-bar > .bar {
+    -fx-background-color: linear-gradient(to right, #22c55e, #2563eb);
+    -fx-background-radius: 10px;
+}
+.occupation-bar > .track {
+    -fx-background-color: #e5e7eb;
+    -fx-background-radius: 10px;
+}
+.photo-zoom-badge {
+    -fx-background-color: rgba(15,23,42,0.72);
+    -fx-text-fill: white;
+    -fx-background-radius: 999px;
+    -fx-padding: 6px 8px;
+    -fx-font-size: 13px;
+}
+
+.success-button {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+    -fx-font-weight: bold;
+    -fx-padding: 8 12 8 12;
+}
+.success-button:hover {
+    -fx-background-color: #15803d;
+}
+
+
+/* V6.7 Contrats workflow */
+.status-reserve { -fx-text-fill: #b7791f; -fx-font-weight: bold; }
+.status-active { -fx-text-fill: #047857; -fx-font-weight: bold; }
+.status-closed { -fx-text-fill: #4b5563; -fx-font-weight: bold; }
+.status-cancelled { -fx-text-fill: #dc2626; -fx-font-weight: bold; }
+.contract-row-reserve { -fx-background-color: rgba(250, 204, 21, 0.08); }
+.contract-row-active { -fx-background-color: rgba(34, 197, 94, 0.08); }
+.contract-row-closed { -fx-background-color: rgba(148, 163, 184, 0.08); }
+.contract-row-cancelled { -fx-background-color: rgba(239, 68, 68, 0.08); }

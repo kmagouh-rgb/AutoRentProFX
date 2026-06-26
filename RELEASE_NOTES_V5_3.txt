@@ -1,0 +1,11 @@
+AutoRent Pro FX V5.3 ANALYTICS
+
+Base: V5.2 built from V5.1 FLEET ALERTS.
+
+Nouveautés:
+- Nouveau module Analyse dans le sidebar.
+- Rentabilité par véhicule: revenus, maintenance, dépenses, solde net.
+- Graphique Top rentabilité véhicules.
+- Cartes de synthèse: CA, encaissé, charges, solde net.
+- upgrade_v5_3.sql sans suppression des données.
+- Version Maven mise à jour à 5.3.

@@ -1,0 +1,3 @@
+-- AutoRent Pro FX V6.3 - Fleet Cards PRO
+-- Aucun changement obligatoire de structure.
+-- Les photos sont lues depuis vehicles.photo_path ajouté en V6.1.

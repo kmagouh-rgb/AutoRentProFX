@@ -1,0 +1,17 @@
+AutoRent Pro FX - V7.0 CONTRATS PRO
+
+Base:
+- V6.9.1 WORK BASE FIXED
+
+Nouveautés:
+- Nouveau formulaire Contrat PRO en workflow par étapes.
+- Étape Dates: date départ / date retour.
+- Étape Véhicule: affiche uniquement les voitures disponibles selon la période.
+- Vérification disponibilité depuis Contracts + Reservations.
+- Étape Client.
+- Étape Prix/Paiement: prix jour, remise, payé, caution, calcul total/reste.
+- Préparation Actions rapides: PDF / Paiement / Départ / Retour / Clôture.
+
+Important:
+- La disponibilité n'est toujours pas une valeur modifiable dans Gestion véhicules.
+- Elle est calculée par dates depuis les contrats et réservations.

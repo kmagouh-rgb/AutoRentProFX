@@ -1,0 +1,35 @@
+-- AutoRent Pro FX V5.3 - Analytics compatibility upgrade
+USE autorent_pro;
+
+ALTER TABLE vehicles
+ADD COLUMN IF NOT EXISTS registration VARCHAR(50) NULL,
+ADD COLUMN IF NOT EXISTS plate_number VARCHAR(50) NULL,
+ADD COLUMN IF NOT EXISTS active TINYINT(1) NOT NULL DEFAULT 1;
+
+ALTER TABLE contracts
+ADD COLUMN IF NOT EXISTS vehicle_id INT NULL,
+ADD COLUMN IF NOT EXISTS total_amount DECIMAL(10,2) DEFAULT 0,
+ADD COLUMN IF NOT EXISTS paid_amount DECIMAL(10,2) DEFAULT 0;
+
+CREATE TABLE IF NOT EXISTS maintenance (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  vehicle_id INT NULL,
+  maintenance_date DATE,
+  type VARCHAR(80) DEFAULT 'VIDANGE',
+  mileage INT DEFAULT 0,
+  amount DECIMAL(10,2) DEFAULT 0,
+  status VARCHAR(30) DEFAULT 'TERMINEE',
+  notes TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS expenses (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  vehicle_id INT NULL,
+  expense_date DATE,
+  category VARCHAR(80) DEFAULT 'AUTRE',
+  label VARCHAR(150),
+  amount DECIMAL(10,2) DEFAULT 0,
+  notes TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

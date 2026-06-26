@@ -1,0 +1,29 @@
+-- AutoRent Pro FX V6.0 - Fiche client complète
+-- Exécuter dans phpMyAdmin sur la base autorent_pro, sans supprimer les données.
+
+ALTER TABLE customers
+  ADD COLUMN IF NOT EXISTS sex VARCHAR(20) NULL,
+  ADD COLUMN IF NOT EXISTS birth_date DATE NULL,
+  ADD COLUMN IF NOT EXISTS birth_place VARCHAR(120) NULL,
+  ADD COLUMN IF NOT EXISTS nationality VARCHAR(80) NULL,
+  ADD COLUMN IF NOT EXISTS city VARCHAR(100) NULL,
+  ADD COLUMN IF NOT EXISTS email VARCHAR(150) NULL,
+  ADD COLUMN IF NOT EXISTS cin_expiry DATE NULL,
+  ADD COLUMN IF NOT EXISTS license_issue_date DATE NULL,
+  ADD COLUMN IF NOT EXISTS license_issue_place VARCHAR(120) NULL,
+  ADD COLUMN IF NOT EXISTS license_expiry DATE NULL,
+  ADD COLUMN IF NOT EXISTS passport_number VARCHAR(80) NULL,
+  ADD COLUMN IF NOT EXISTS passport_expiry DATE NULL,
+  ADD COLUMN IF NOT EXISTS entry_number VARCHAR(80) NULL,
+  ADD COLUMN IF NOT EXISTS profession VARCHAR(120) NULL,
+  ADD COLUMN IF NOT EXISTS emergency_contact_name VARCHAR(150) NULL,
+  ADD COLUMN IF NOT EXISTS emergency_contact_phone VARCHAR(50) NULL,
+  ADD COLUMN IF NOT EXISTS observations TEXT NULL,
+  ADD COLUMN IF NOT EXISTS doc_cin_recto VARCHAR(500) NULL,
+  ADD COLUMN IF NOT EXISTS doc_cin_verso VARCHAR(500) NULL,
+  ADD COLUMN IF NOT EXISTS doc_permis_recto VARCHAR(500) NULL,
+  ADD COLUMN IF NOT EXISTS doc_permis_verso VARCHAR(500) NULL,
+  ADD COLUMN IF NOT EXISTS doc_passport VARCHAR(500) NULL,
+  ADD COLUMN IF NOT EXISTS photo_path VARCHAR(500) NULL;
+
+UPDATE customers SET nationality='Marocaine' WHERE nationality IS NULL OR nationality='';

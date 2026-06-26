@@ -1,0 +1,14 @@
+AutoRent Pro FX V6.8 - DOSSIER LOCATION
+
+Nouveautés:
+- Nouveau module: Dossiers de location.
+- Vue complète par contrat: client, véhicule, dates, paiement, reste et statut.
+- Timeline du dossier: contrat, paiements, départ, retour, clôture.
+- Menu latéral: ajout du bouton Dossiers.
+- Style CSS dédié au dossier.
+- Fichier upgrade_v6_8.sql pour préparer le journal d'événements des contrats.
+
+Installation:
+1) Remplacer l'ancienne version par cette version.
+2) Si vous gardez une ancienne base, exécuter database/upgrade_v6_8.sql dans phpMyAdmin.
+3) Lancer run.bat.

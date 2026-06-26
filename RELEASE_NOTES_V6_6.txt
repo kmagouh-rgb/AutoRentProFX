@@ -1,0 +1,13 @@
+AutoRent Pro FX V6.6 - FICHE 360 VEHICULE
+
+Nouveau:
+- Nouveau module: Fiche 360° Véhicule.
+- Vue complète par voiture: photo, identité, état technique, disponibilité actuelle.
+- KPIs: nombre de contrats, revenus, maintenance, dépenses, solde net.
+- Taux d'occupation estimé de l'année en cours.
+- Derniers contrats et dernières opérations de coûts.
+- Accès depuis le menu latéral.
+
+Base de données:
+- Aucun changement obligatoire.
+- Fichier database/upgrade_v6_6.sql inclus pour documentation.

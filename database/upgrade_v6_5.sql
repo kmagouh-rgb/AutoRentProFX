@@ -1,0 +1,2 @@
+-- AutoRent Pro FX V6.5
+-- No schema changes required for Centre exploitation.

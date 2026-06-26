@@ -1,0 +1,8 @@
+AutoRent Pro FX V5.6 - Disponibilité retirée de Gestion véhicules
+
+- Suppression de Disponible/Louée/Réservée du formulaire Gestion des véhicules.
+- Gestion véhicules garde seulement la situation technique: EN_SERVICE, MAINTENANCE, HORS_SERVICE, VENDUE.
+- La disponibilité réelle est calculée par dates depuis Contrats + Réservations.
+- Contrats ne modifie plus vehicles.status en LOUEE/DISPONIBLE.
+- Dashboard/Rapports corrigés pour ne plus compter Disponible depuis vehicles.status.
+- Migration upgrade_v5_6.sql sans suppression de données.

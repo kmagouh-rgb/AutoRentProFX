@@ -1,0 +1,7 @@
+AutoRent Pro FX V6.5 - Centre exploitation
+
+- Ajout du module Centre exploitation.
+- Vue opérationnelle: disponibilité réelle, départs du jour, retours du jour, retards.
+- KPIs financiers: CA jour, CA mois, reste à payer.
+- Alertes documents véhicules et permis clients.
+- Menu latéral mis à jour.

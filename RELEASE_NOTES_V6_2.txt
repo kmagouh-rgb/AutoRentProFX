@@ -1,0 +1,11 @@
+AutoRent Pro FX - V6.2 FLEET DETAILS
+
+Nouveautés:
+- Double clic sur une Fleet Card pour ouvrir la fiche véhicule.
+- Bouton "Ouvrir fiche" ajouté à chaque carte.
+- Bouton "Photo" avec rappel du chemin de modification.
+- Fiche véhicule avec photo, immatriculation, marque, modèle, carburant, transmission, kilométrage, prix/jour et état technique.
+- Effet hover moderne sur les cartes.
+
+Base de données:
+- Aucun changement obligatoire.
