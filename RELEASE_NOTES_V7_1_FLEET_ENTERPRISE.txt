@@ -1,0 +1,24 @@
+AutoRent Pro FX - V7.1 FLEET ENTERPRISE
+
+Base:
+- V7.0 CONTRATS PRO
+
+Fichiers modifiés:
+- src/main/java/com/autorentpro/ui/FleetView.java
+- src/main/java/com/autorentpro/ui/VehicleRepository.java
+- src/main/resources/style.css
+
+Nouveautés réelles:
+- Fleet Cards plus dynamiques.
+- Disponibilité actuelle calculée depuis Contrats + Réservations.
+- Badges: Disponible / Occupée / Réservée / Maintenance / Hors service.
+- Statistiques en haut: Disponible, Occupée, Réservée, Maintenance/HS, Total.
+- Carte différente selon la situation:
+  * Disponible: bouton Nouveau contrat.
+  * Occupée/Réservée: Voir contrat + date retour/fin.
+  * Maintenance/Hors service/Vendue: actions maintenance/fiche.
+- Photos véhicule conservées dans les cards.
+- Double-clic ouvre la fiche véhicule.
+
+Git:
+- Ajout d'un .gitignore pour ne plus envoyer target/.

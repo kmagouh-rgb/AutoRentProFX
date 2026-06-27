@@ -1,0 +1,17 @@
+AutoRent Pro FX - V7.9 STABLE CLEAN
+
+Objectif:
+- Stabiliser la base avant de continuer les grands modules.
+
+Changements pratiques:
+- run.bat amélioré: détecte Maven dans PATH ou C:\apache-maven-3.9.16 / 3.9.15.
+- test_compile.bat ajouté pour tester la compilation rapidement.
+- test_error_log.bat ajouté pour générer error.txt automatiquement.
+- .gitignore ajouté pour éviter d'envoyer target/ à GitHub.
+- Titre de l'application mis à jour: V7.9 STABLE CLEAN.
+- upgrade_v7_9_stable.sql ajouté: vérifie/ajoute les colonnes et tables essentielles sans supprimer les données.
+
+Utilisation:
+1. Lancer test_compile.bat.
+2. Si compilation OK, lancer run.bat.
+3. Si erreur, lancer test_error_log.bat et envoyer error.txt.

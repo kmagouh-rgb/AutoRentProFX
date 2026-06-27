@@ -1,0 +1,18 @@
+SPRINT 1 - FLEET PERFORMANCE TEST
+
+1) نفذ database/upgrade_sprint1_fleet_performance.sql في phpMyAdmin.
+2) شغل test_compile.bat.
+3) إذا نجح، شغل run.bat.
+4) افتح Fleet Cards.
+5) جرّب:
+   - البحث
+   - الفلترة
+   - تغيير tri
+   - فتح صورة السيارة
+   - double-click على بطاقة
+6) إذا تجمد البرنامج، شغل test_error_log.bat وأرسل error.txt.
+
+الهدف:
+- تثبيت مشكلة التجمّد.
+- تسريع استعلامات العقود والحجوزات.
+- جعل Fleet أكثر استقرارًا قبل إضافة ميزات جديدة.

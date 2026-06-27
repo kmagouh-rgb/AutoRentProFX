@@ -1,0 +1,18 @@
+AutoRent Pro FX - V7.2 PLANNING ENTERPRISE
+
+Base:
+- V7.1 Fleet Enterprise
+
+Nouveautés:
+- Planning reconstruit avec modes Semaine / 2 semaines / Mois.
+- Couleurs unifiées:
+  * Vert: Disponible
+  * Rouge: Occupée
+  * Jaune: Réservée
+  * Orange: Maintenance / Hors service / Vendue
+- Lecture de Contracts + Reservations.
+- Statistiques du jour en haut.
+- Navigation précédent / aujourd'hui / suivant.
+- Clic sur une cellule: détail véhicule + contrat/réservation.
+
+Aucune migration SQL nécessaire.

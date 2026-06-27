@@ -1,0 +1,20 @@
+AutoRent Pro FX - Sprint 1 Fleet Enterprise
+
+Base:
+- V7.9 STABLE CLEAN
+
+Travail réel effectué:
+- Fleet Cards: ajout du tri dans la barre de filtres.
+- Ajout bouton Réinitialiser les filtres.
+- Ajout compteur des véhicules affichés après filtre.
+- Message clair quand aucun véhicule ne correspond aux filtres.
+- Tri disponible par: plus récent, marque, immatriculation, prix, kilométrage.
+- Nettoyage Git maintenu via .gitignore.
+
+Fichiers modifiés:
+- src/main/java/com/autorentpro/ui/FleetView.java
+- src/main/resources/style.css
+
+Note:
+- Je n'ai pas pu exécuter Maven dans l'environnement ChatGPT car Maven n'est pas installé ici.
+- Sur ton PC, lance test_compile.bat puis run.bat.

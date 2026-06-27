@@ -1,0 +1,12 @@
+AutoRent Pro FX - Sprint 1 Fleet Freeze Fix
+
+Correction:
+- Fleet Cards ne bloque plus l'interface pendant le chargement.
+- Chargement déplacé dans un Task en arrière-plan.
+- Recherche et filtres avec délai de 350ms pour éviter le gel à chaque frappe.
+- Message de chargement.
+- Gestion d'erreur dans Fleet Cards.
+- Limite d'affichage à 300 cartes pour préserver la fluidité.
+
+Fichier modifié:
+- src/main/java/com/autorentpro/ui/FleetView.java

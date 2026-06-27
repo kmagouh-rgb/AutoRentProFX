@@ -1,0 +1,15 @@
+AutoRent Pro FX - V7.7 AUDIT LOG
+
+Base:
+- V7.6 NOTIFICATIONS CENTER
+
+Nouveautés:
+- Nouveau module: Audit / Journal des opérations.
+- Table audit_log créée automatiquement si absente.
+- Journalisation:
+  * Création / modification contrat
+  * Paiement ajouté
+  * Clôture contrat
+  * Annulation contrat
+- Recherche et filtre dans l'audit.
+- Fichier SQL: database/upgrade_v7_7.sql

@@ -1,0 +1,15 @@
+AutoRent Pro FX - V7.8 BACKUP CENTER
+
+Base:
+- V7.7 AUDIT LOG
+
+Nouveautés:
+- Nouveau module: Backup.
+- Création d'une sauvegarde SQL de la base autorent_pro.
+- Choix du dossier de sauvegarde.
+- Journal de sortie dans l'écran Backup.
+- Enregistrement de l'opération dans Audit.
+- Aucun changement obligatoire de base de données.
+
+Note:
+- mysqldump doit être accessible dans PATH ou depuis le dossier MySQL/bin.

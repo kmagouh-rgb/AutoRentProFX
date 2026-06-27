@@ -1,0 +1,15 @@
+AutoRent Pro FX - V7.4 VEHICLE 360 ENTERPRISE
+
+Base:
+- V7.3 CONTRAT PDF PRO
+
+Nouveautés:
+- Fiche 360° réorganisée en onglets.
+- Onglets: Fiche, Contrats, Maintenance & dépenses, Rentabilité.
+- Actions rapides depuis la fiche véhicule:
+  * Nouveau contrat / Voir contrat actif
+  * Planning véhicule
+  * Documents
+- Résumé financier plus clair.
+- Préparation au lien direct avec Contrats PRO et Planning.
+- Aucun changement obligatoire de base de données.

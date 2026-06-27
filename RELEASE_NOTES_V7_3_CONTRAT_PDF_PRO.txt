@@ -1,0 +1,11 @@
+AutoRent Pro FX - V7.3 CONTRAT PDF PRO
+
+Base:
+- V7.2 PLANNING ENTERPRISE
+
+Nouveautés:
+- Amélioration du contrat PDF officiel.
+- Ajout d'une deuxième page: Conditions générales de location.
+- Zones de signature locataire/agence.
+- Bouton renommé: Contrat PDF officiel.
+- Aucun changement obligatoire de base de données.

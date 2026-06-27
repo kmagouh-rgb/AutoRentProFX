@@ -1,0 +1,13 @@
+AutoRent Pro FX - V7.6 NOTIFICATIONS CENTER
+
+Base:
+- V7.5 DASHBOARD BI
+
+Nouveautés:
+- Centre de notifications opérationnel.
+- Alertes contrats: retours aujourd'hui/demain/en retard.
+- Alertes paiements incomplets.
+- Alertes documents véhicules proches expiration.
+- Alertes véhicules en maintenance / hors service.
+- Filtres: Toutes, Critiques, Contrats, Documents, Maintenance, Paiements.
+- Aucun changement obligatoire de base de données.

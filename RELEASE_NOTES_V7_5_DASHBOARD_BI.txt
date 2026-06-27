@@ -1,0 +1,13 @@
+AutoRent Pro FX - V7.5 DASHBOARD BI
+
+Base:
+- V7.4 VEHICLE 360 ENTERPRISE
+
+Nouveautés:
+- Dashboard reconstruit en Centre d'exploitation.
+- KPIs: disponibles, occupées, réservées, maintenance/HS, départs, retours, retards, CA jour/mois.
+- Bloc À faire aujourd'hui.
+- Bloc Alertes importantes.
+- Bloc Résumé opérationnel avec taux d'occupation.
+- Lecture directe depuis contracts, reservations, payments, expenses, maintenance et vehicle_documents.
+- Aucun changement obligatoire de base de données.
