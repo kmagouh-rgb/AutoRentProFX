@@ -1,0 +1,3 @@
+-- AutoRent Pro FX V7.4
+-- Aucun changement obligatoire de base de donnees.
+-- Fiche 360° reorganisee en onglets JavaFX.

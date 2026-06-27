@@ -1,0 +1,3 @@
+-- AutoRent Pro FX V7.3
+-- Aucun changement obligatoire de base de donnees.
+-- Cette version ameliore le PDF contrat officiel.

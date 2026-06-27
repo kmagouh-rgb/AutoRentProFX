@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 public class VehicleRepository {
     public ObservableList<Vehicle> findAll(String keyword) {
@@ -76,6 +77,78 @@ public class VehicleRepository {
             return value == null ? "" : value;
         } catch (Exception ignored) {
             return "";
+        }
+    }
+
+
+
+    public VehicleUsage currentUsage(int vehicleId) {
+        Db.ensureSchemaCompatibility();
+        try (Connection cn = Db.getConnection()) {
+            // 1) Contrat couvrant aujourd'hui = OCCUPEE
+            String contractSql = "SELECT c.contract_number ref, c.end_date, c.status, cu.full_name customer " +
+                    "FROM contracts c LEFT JOIN customers cu ON cu.id=c.customer_id " +
+                    "WHERE c.vehicle_id=? AND UPPER(c.status) IN ('ACTIVE','OPEN','CONFIRME','VEHICULE_LIVRE','EN_COURS','RETOUR_AUJOURD_HUI') " +
+                    "AND c.start_date <= CURDATE() AND c.end_date >= CURDATE() ORDER BY c.end_date LIMIT 1";
+            try (PreparedStatement ps = cn.prepareStatement(contractSql)) {
+                ps.setInt(1, vehicleId);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        return new VehicleUsage("OCCUPEE", rs.getString("ref"), rs.getString("customer"), toLocal(rs.getDate("end_date")), rs.getString("status"));
+                    }
+                }
+            }
+
+            // 2) Réservation couvrant aujourd'hui = RESERVEE
+            String reservationTodaySql = "SELECT CONCAT('RES-', r.id) ref, r.end_date, r.status, cu.full_name customer " +
+                    "FROM reservations r LEFT JOIN customers cu ON cu.id=r.customer_id " +
+                    "WHERE r.vehicle_id=? AND UPPER(r.status) IN ('ACTIVE','RESERVE','RESERVED','OPEN','CONFIRMED','CONFIRME') " +
+                    "AND r.start_date <= CURDATE() AND r.end_date >= CURDATE() ORDER BY r.end_date LIMIT 1";
+            try (PreparedStatement ps = cn.prepareStatement(reservationTodaySql)) {
+                ps.setInt(1, vehicleId);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        return new VehicleUsage("RESERVEE", rs.getString("ref"), rs.getString("customer"), toLocal(rs.getDate("end_date")), rs.getString("status"));
+                    }
+                }
+            }
+
+            // 3) Prochaine réservation = information future sans bloquer aujourd'hui
+            String nextReservationSql = "SELECT CONCAT('RES-', r.id) ref, r.start_date, r.status, cu.full_name customer " +
+                    "FROM reservations r LEFT JOIN customers cu ON cu.id=r.customer_id " +
+                    "WHERE r.vehicle_id=? AND UPPER(r.status) IN ('ACTIVE','RESERVE','RESERVED','OPEN','CONFIRMED','CONFIRME') " +
+                    "AND r.start_date > CURDATE() ORDER BY r.start_date LIMIT 1";
+            try (PreparedStatement ps = cn.prepareStatement(nextReservationSql)) {
+                ps.setInt(1, vehicleId);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        return new VehicleUsage("DISPONIBLE", rs.getString("ref"), rs.getString("customer"), toLocal(rs.getDate("start_date")), "PROCHAINE_RESERVATION");
+                    }
+                }
+            }
+        } catch (Exception ignored) {
+            // Si une ancienne base n'a pas encore toutes les tables/colonnes, ne pas bloquer l'affichage des cartes.
+        }
+        return new VehicleUsage("DISPONIBLE", "", "", null, "");
+    }
+
+    private LocalDate toLocal(Date d) {
+        return d == null ? null : d.toLocalDate();
+    }
+
+    public static class VehicleUsage {
+        public final String state;
+        public final String reference;
+        public final String customer;
+        public final LocalDate date;
+        public final String status;
+
+        public VehicleUsage(String state, String reference, String customer, LocalDate date, String status) {
+            this.state = state == null ? "DISPONIBLE" : state;
+            this.reference = reference == null ? "" : reference;
+            this.customer = customer == null ? "" : customer;
+            this.date = date;
+            this.status = status == null ? "" : status;
         }
     }
 

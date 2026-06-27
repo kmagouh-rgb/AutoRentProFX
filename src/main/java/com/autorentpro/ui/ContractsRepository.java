@@ -94,6 +94,7 @@ public class ContractsRepository {
             }
         }
         updateVehicleStatus(c.getVehicleId(), c.getStatus());
+        AuditLogger.log("CONTRAT", c.getId() == 0 ? "CREATION" : "MODIFICATION", c.getContractNumber(), "Véhicule=" + c.getVehicleId() + ", Client=" + c.getCustomerId() + ", Statut=" + c.getStatus());
     }
 
     private void validateDates(Contract c) throws SQLException {
@@ -180,6 +181,7 @@ public class ContractsRepository {
                 p1.setInt(1, contractId); p1.setDouble(2, amount); p1.setString(3, method); p1.setString(4, notes); p1.executeUpdate();
                 p2.setDouble(1, amount); p2.setInt(2, contractId); p2.executeUpdate();
                 cn.commit();
+                AuditLogger.log("PAIEMENT", "AJOUT", "Contrat #" + contractId, "Montant=" + amount + ", Méthode=" + method);
             } catch(Exception ex) { cn.rollback(); throw ex; }
         }
     }
@@ -191,12 +193,14 @@ public class ContractsRepository {
              PreparedStatement p1 = cn.prepareStatement("UPDATE contracts SET status='CLOTURE' WHERE id=?")) {
             p1.setInt(1, c.getId());
             p1.executeUpdate();
+            AuditLogger.log("CONTRAT", "CLOTURE", c.getContractNumber(), "Contrat clôturé");
         }
     }
 
     public void cancel(int id) throws SQLException {
         try (Connection cn = Db.getConnection(); PreparedStatement ps = cn.prepareStatement("UPDATE contracts SET status='ANNULE' WHERE id=?")) {
             ps.setInt(1, id); ps.executeUpdate();
+            AuditLogger.log("CONTRAT", "ANNULATION", "Contrat #" + id, "Contrat annulé");
         }
     }
 

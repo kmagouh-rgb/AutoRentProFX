@@ -45,7 +45,9 @@ public class MainLayout {
         Button reports = navButton("📊 Rapports");
         Button analytics = navButton("📈 Analyse");
         Button alerts = navButton("🔔 Alertes");
+        Button audit = navButton("🕒 Audit");
         Button tools = navButton("🧰 Outils");
+        Button backup = navButton("💾 Backup");
         Button settings = navButton("⚙ Paramètres");
 
         dash.setOnAction(e -> showDashboard());
@@ -64,14 +66,16 @@ public class MainLayout {
         reports.setOnAction(e -> showReports());
         analytics.setOnAction(e -> showAnalytics());
         alerts.setOnAction(e -> showAlerts());
+        audit.setOnAction(e -> showAudit());
         tools.setOnAction(e -> showTools());
+        backup.setOnAction(e -> showBackup());
         settings.setOnAction(e -> showSettings());
 
         Region spacer = new Region();
         VBox.setVgrow(spacer, Priority.ALWAYS);
         Label user = new Label("Connecté: " + username);
         user.getStyleClass().add("sidebar-user");
-        sidebar.getChildren().addAll(logo, dash, exploitation, vehicles, fleet, vehicle360, clients, planning, availability, contracts, dossiers, maintenance, expenses, documents, reports, analytics, alerts, tools, settings, spacer, user);
+        sidebar.getChildren().addAll(logo, dash, exploitation, vehicles, fleet, vehicle360, clients, planning, availability, contracts, dossiers, maintenance, expenses, documents, reports, analytics, alerts, audit, tools, backup, settings, spacer, user);
 
         HBox header = new HBox(12);
         header.setAlignment(Pos.CENTER_LEFT);
@@ -80,7 +84,7 @@ public class MainLayout {
         Button collapse = new Button("☰");
         collapse.getStyleClass().add("icon-button");
         collapse.setOnAction(e -> toggleSidebar());
-        Label title = new Label("AutoRent Pro FX - V6.8 DOSSIER LOCATION");
+        Label title = new Label("AutoRent Pro FX - V7.9 STABLE CLEAN");
         title.getStyleClass().add("top-title");
         TextField globalSearch = new TextField();
         globalSearch.setPromptText("Recherche générale: véhicule, client, contrat...");
@@ -154,7 +158,13 @@ public class MainLayout {
     private void showReports() { content.getChildren().setAll(new ReportsView().getView()); }
     private void showAnalytics() { content.getChildren().setAll(new AnalyticsView().getView()); }
     private void showAlerts() { content.getChildren().setAll(new AlertsView().getView()); }
+
+    private void showAudit() { content.getChildren().setAll(new AuditView().getView()); }
+
     private void showTools() { content.getChildren().setAll(new ExportCenterView().getView()); }
+
+    private void showBackup() { content.getChildren().setAll(new BackupView().getView()); }
+
     private void showSettings() { content.getChildren().setAll(new SettingsView().getView()); }
 
     private void placeholder(String title, String msg) {

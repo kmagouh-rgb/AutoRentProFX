@@ -158,7 +158,53 @@ public class Vehicle360View {
         VBox contracts = section("Derniers contrats", listBox(stats.recentContracts));
         VBox costs = section("Dernières opérations maintenance / dépenses", listBox(stats.recentCosts));
 
-        detail.getChildren().setAll(hero, kpis, technical, occupation, contracts, costs);
+        VBox identity = section("Identité véhicule",
+                new Label("Immatriculation : " + safe(v.getRegistration())),
+                new Label("Marque / Modèle : " + safe(v.getBrand()) + " " + safe(v.getModel())),
+                new Label("Année : " + (v.getYear() > 0 ? String.valueOf(v.getYear()) : "-")),
+                new Label("Carburant : " + safe(v.getFuel())),
+                new Label("Boîte : " + safe(v.getTransmission())),
+                new Label("Kilométrage : " + v.getMileage() + " km"),
+                new Label("Prix / jour : " + money(v.getDailyPrice()))
+        );
+
+        Button actionContract = new Button(stats.currentBusy ? "Voir contrat actif" : "Nouveau contrat");
+        actionContract.getStyleClass().add("primary-button");
+        actionContract.setOnAction(e -> new Alert(Alert.AlertType.INFORMATION,
+                stats.currentBusy ? stats.nextEvent : "Depuis cette fiche, le prochain développement ouvrira directement Contrats PRO avec ce véhicule.",
+                ButtonType.OK).showAndWait());
+
+        Button actionPlanning = new Button("Planning véhicule");
+        actionPlanning.getStyleClass().add("secondary-button");
+        actionPlanning.setOnAction(e -> new Alert(Alert.AlertType.INFORMATION,
+                "Le planning détaillé du véhicule sera relié dans la prochaine étape.",
+                ButtonType.OK).showAndWait());
+
+        Button actionDocs = new Button("Documents");
+        actionDocs.getStyleClass().add("secondary-button");
+        actionDocs.setOnAction(e -> new Alert(Alert.AlertType.INFORMATION,
+                "Documents véhicule: carte grise, assurance, visite technique, factures et photos.",
+                ButtonType.OK).showAndWait());
+
+        HBox quickActions = new HBox(10, actionContract, actionPlanning, actionDocs);
+        quickActions.getStyleClass().add("quick-actions-bar");
+
+        TabPane tabs = new TabPane();
+        tabs.getStyleClass().add("vehicle360-tabs");
+        Tab tabIdentity = new Tab("Fiche", new VBox(12, identity, technical, quickActions));
+        Tab tabContracts = new Tab("Contrats", contracts);
+        Tab tabCosts = new Tab("Maintenance & dépenses", costs);
+        Tab tabStats = new Tab("Rentabilité", new VBox(12, occupation,
+                section("Résumé financier",
+                        new Label("Revenus : " + money(stats.revenue)),
+                        new Label("Maintenance : " + money(stats.maintenance)),
+                        new Label("Dépenses : " + money(stats.expenses)),
+                        new Label("Solde net : " + money(stats.revenue - stats.maintenance - stats.expenses))
+                )));
+        tabs.getTabs().addAll(tabIdentity, tabContracts, tabCosts, tabStats);
+        tabs.getTabs().forEach(t -> t.setClosable(false));
+
+        detail.getChildren().setAll(hero, kpis, tabs);
     }
 
     private StackPane photoBox(Vehicle v) {

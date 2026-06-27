@@ -1,0 +1,3 @@
+-- AutoRent Pro FX V7.6
+-- Aucun changement obligatoire de base de donnees.
+-- Ajout du Centre de notifications JavaFX.

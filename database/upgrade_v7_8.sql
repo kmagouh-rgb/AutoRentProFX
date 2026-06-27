@@ -1,0 +1,3 @@
+-- AutoRent Pro FX V7.8
+-- Aucun changement obligatoire de base de donnees.
+-- Ajout module Backup JavaFX.

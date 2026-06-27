@@ -46,7 +46,7 @@ public class ContractsView {
         Button pay = new Button("Paiement"); pay.getStyleClass().add("secondary-button");
         Button close = new Button("Fermer contrat"); close.getStyleClass().add("secondary-button");
         Button cancel = new Button("Annuler"); cancel.getStyleClass().add("danger-button");
-        Button print = new Button("Imprimer contrat PDF"); print.getStyleClass().add("secondary-button");
+        Button print = new Button("Contrat PDF officiel"); print.getStyleClass().add("secondary-button");
         actions.getChildren().addAll(search, add, edit, pay, close, cancel, print);
         top.getChildren().addAll(title, note, actions);
         root.setTop(top);
@@ -387,6 +387,46 @@ public class ContractsView {
                 text(cs, PDType1Font.TIMES_ROMAN, 7, margin, 48, "(1). Le conducteur est la personne physique ou morale au nom de laquelle est établi le contrat. Dans le cas d’une personne physique le Locataire est le payeur et");
                 text(cs, PDType1Font.TIMES_ROMAN, 7, margin, 36, "le conducteur principal. Dans le cas d’une personne morale (exemples : société, association, etc.), alors le conducteur principal est le signataire du contrat.");
             }
+
+            PDPage conditionsPage = new PDPage(PDRectangle.A4);
+            doc.addPage(conditionsPage);
+            try (PDPageContentStream cs2 = new PDPageContentStream(doc, conditionsPage)) {
+                float margin = 42;
+                float y = 790;
+                text(cs2, PDType1Font.HELVETICA_BOLD, 18, margin, y, "CONDITIONS GENERALES DE LOCATION");
+                y -= 28;
+                text(cs2, PDType1Font.HELVETICA, 10, margin, y, "Contrat: " + safe(c.getContractNumber()));
+                y -= 26;
+
+                String[] lines = new String[] {
+                    "1. Le locataire reconnait avoir recu le vehicule en bon etat de fonctionnement et de proprete.",
+                    "2. Le vehicule doit etre restitue a la date et a l'heure prevues au contrat.",
+                    "3. Tout retard peut entrainer une facturation supplementaire selon le tarif journalier applique.",
+                    "4. Le locataire est responsable des infractions, amendes et dommages causes pendant la periode de location.",
+                    "5. Le carburant doit etre restitue au meme niveau qu'au depart, sauf accord contraire.",
+                    "6. Les frais de nettoyage, carburant, dommages ou kilometres supplementaires peuvent etre retenus sur la caution.",
+                    "7. Le vehicule ne peut etre conduit que par les conducteurs declares dans le contrat.",
+                    "8. Toute prolongation doit etre confirmee par l'agence avant l'expiration du contrat.",
+                    "9. En cas d'accident ou de panne, le locataire doit informer immediatement l'agence.",
+                    "10. La signature du contrat vaut acceptation des presentes conditions."
+                };
+
+                for (String lineText : lines) {
+                    text(cs2, PDType1Font.HELVETICA, 10, margin, y, lineText);
+                    y -= 24;
+                }
+
+                y -= 30;
+                box(cs2, margin, 110, 230, 90);
+                centeredInBox(cs2, PDType1Font.HELVETICA_BOLD, 11, "Signature du locataire", margin, 180, 230);
+                text(cs2, PDType1Font.HELVETICA, 9, margin + 14, 135, "Lu et approuve");
+
+                box(cs2, 325, 110, 230, 90);
+                centeredInBox(cs2, PDType1Font.HELVETICA_BOLD, 11, "Cachet et signature agence", 325, 180, 230);
+
+                text(cs2, PDType1Font.HELVETICA, 8, margin, 62, "Document genere par AutoRent Pro FX - Contrat PDF professionnel.");
+            }
+
             doc.save(file);
         }
     }

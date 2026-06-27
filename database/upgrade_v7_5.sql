@@ -1,0 +1,3 @@
+-- AutoRent Pro FX V7.5
+-- Aucun changement obligatoire de base de donnees.
+-- Dashboard BI reconstruit avec indicateurs calcules depuis les donnees existantes.
