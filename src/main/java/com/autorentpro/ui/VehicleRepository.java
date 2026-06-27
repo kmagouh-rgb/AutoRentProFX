@@ -7,6 +7,10 @@ import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.StringJoiner;
 
 public class VehicleRepository {
     public ObservableList<Vehicle> findAll(String keyword) {
@@ -81,6 +85,81 @@ public class VehicleRepository {
     }
 
 
+
+
+    public Map<Integer, VehicleUsage> currentUsageMap(List<Vehicle> vehicles) {
+        Map<Integer, VehicleUsage> result = new HashMap<>();
+        if (vehicles == null || vehicles.isEmpty()) return result;
+
+        StringJoiner placeholders = new StringJoiner(",");
+        for (Vehicle ignored : vehicles) placeholders.add("?");
+
+        try (Connection cn = Db.getConnection()) {
+            // Contrats couvrant aujourd'hui = OCCUPEE
+            String contractSql = "SELECT c.vehicle_id, c.contract_number ref, c.end_date, c.status, cu.full_name customer " +
+                    "FROM contracts c LEFT JOIN customers cu ON cu.id=c.customer_id " +
+                    "WHERE c.vehicle_id IN (" + placeholders + ") " +
+                    "AND UPPER(c.status) IN ('ACTIVE','OPEN','CONFIRME','VEHICULE_LIVRE','EN_COURS','RETOUR_AUJOURD_HUI') " +
+                    "AND c.start_date <= CURDATE() AND c.end_date >= CURDATE() ORDER BY c.end_date";
+            try (PreparedStatement ps = cn.prepareStatement(contractSql)) {
+                bindVehicleIds(ps, vehicles);
+                try (ResultSet rs = ps.executeQuery()) {
+                    while (rs.next()) {
+                        int vehicleId = rs.getInt("vehicle_id");
+                        result.putIfAbsent(vehicleId, new VehicleUsage("OCCUPEE", rs.getString("ref"), rs.getString("customer"), toLocal(rs.getDate("end_date")), rs.getString("status")));
+                    }
+                }
+            }
+
+            // Réservations couvrant aujourd'hui = RESERVEE, seulement si pas déjà occupée
+            String reservationTodaySql = "SELECT r.vehicle_id, CONCAT('RES-', r.id) ref, r.end_date, r.status, cu.full_name customer " +
+                    "FROM reservations r LEFT JOIN customers cu ON cu.id=r.customer_id " +
+                    "WHERE r.vehicle_id IN (" + placeholders + ") " +
+                    "AND UPPER(r.status) IN ('ACTIVE','RESERVE','RESERVED','OPEN','CONFIRMED','CONFIRME') " +
+                    "AND r.start_date <= CURDATE() AND r.end_date >= CURDATE() ORDER BY r.end_date";
+            try (PreparedStatement ps = cn.prepareStatement(reservationTodaySql)) {
+                bindVehicleIds(ps, vehicles);
+                try (ResultSet rs = ps.executeQuery()) {
+                    while (rs.next()) {
+                        int vehicleId = rs.getInt("vehicle_id");
+                        result.putIfAbsent(vehicleId, new VehicleUsage("RESERVEE", rs.getString("ref"), rs.getString("customer"), toLocal(rs.getDate("end_date")), rs.getString("status")));
+                    }
+                }
+            } catch (Exception ignored) {
+                // ancienne base sans reservations: ne pas bloquer Fleet
+            }
+
+            // Prochaine réservation = information, seulement si pas occupée/réservée aujourd'hui
+            String nextReservationSql = "SELECT r.vehicle_id, CONCAT('RES-', r.id) ref, r.start_date, r.status, cu.full_name customer " +
+                    "FROM reservations r LEFT JOIN customers cu ON cu.id=r.customer_id " +
+                    "WHERE r.vehicle_id IN (" + placeholders + ") " +
+                    "AND UPPER(r.status) IN ('ACTIVE','RESERVE','RESERVED','OPEN','CONFIRMED','CONFIRME') " +
+                    "AND r.start_date > CURDATE() ORDER BY r.start_date";
+            try (PreparedStatement ps = cn.prepareStatement(nextReservationSql)) {
+                bindVehicleIds(ps, vehicles);
+                try (ResultSet rs = ps.executeQuery()) {
+                    while (rs.next()) {
+                        int vehicleId = rs.getInt("vehicle_id");
+                        result.putIfAbsent(vehicleId, new VehicleUsage("DISPONIBLE", rs.getString("ref"), rs.getString("customer"), toLocal(rs.getDate("start_date")), "PROCHAINE_RESERVATION"));
+                    }
+                }
+            } catch (Exception ignored) {
+                // ancienne base sans reservations: ne pas bloquer Fleet
+            }
+        } catch (Exception ignored) {
+            // Ne jamais bloquer Fleet Cards si une table/colonne manque.
+        }
+
+        for (Vehicle v : vehicles) {
+            result.putIfAbsent(v.getId(), new VehicleUsage("DISPONIBLE", "", "", null, ""));
+        }
+        return result;
+    }
+
+    private void bindVehicleIds(PreparedStatement ps, List<Vehicle> vehicles) throws SQLException {
+        int i = 1;
+        for (Vehicle v : vehicles) ps.setInt(i++, v.getId());
+    }
 
     public VehicleUsage currentUsage(int vehicleId) {
         Db.ensureSchemaCompatibility();

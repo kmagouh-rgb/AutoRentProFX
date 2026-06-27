@@ -20,6 +20,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 public class FleetView {
     private final BorderPane root = new BorderPane();
@@ -199,8 +200,9 @@ public class FleetView {
                 int maintenance = 0;
                 int total = 0;
 
+                Map<Integer, VehicleRepository.VehicleUsage> usageMap = repo.currentUsageMap(all);
                 for (Vehicle v : all) {
-                    VehicleRepository.VehicleUsage usage = repo.currentUsage(v.getId());
+                    VehicleRepository.VehicleUsage usage = usageMap.getOrDefault(v.getId(), new VehicleRepository.VehicleUsage("DISPONIBLE", "", "", null, ""));
                     String state = effectiveState(v, usage);
 
                     if ("DISPONIBLE".equals(state)) available++;
@@ -497,7 +499,10 @@ public class FleetView {
         MenuButton mb = new MenuButton("⋮");
         mb.getStyleClass().add("card-menu-button");
         MenuItem fiche = new MenuItem("Voir fiche");
-        fiche.setOnAction(e -> openVehicleDetails(v, repo.currentUsage(v.getId()), effectiveState(v, repo.currentUsage(v.getId()))));
+        fiche.setOnAction(e -> {
+            VehicleRepository.VehicleUsage usage = repo.currentUsage(v.getId());
+            openVehicleDetails(v, usage, effectiveState(v, usage));
+        });
         MenuItem photo = new MenuItem("Agrandir photo");
         photo.setOnAction(e -> openPhotoPreview(v));
         MenuItem contrat = new MenuItem("Nouveau contrat");

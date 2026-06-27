@@ -1,0 +1,11 @@
+AutoRent Pro FX - Sprint 1 Fleet Batch Usage
+
+تم عمليًا:
+- إزالة سبب بطء مهم في Fleet Cards: لم يعد البرنامج ينفذ استعلام currentUsage لكل سيارة على حدة.
+- إضافة currentUsageMap داخل VehicleRepository لجلب حالة كل السيارات دفعة واحدة.
+- FleetView يستعمل Map للحالات بدل N+1 queries.
+- هذا يحسن السرعة خصوصًا عند وجود عدد كبير من السيارات والعقود.
+
+الملفات المعدلة:
+- src/main/java/com/autorentpro/ui/VehicleRepository.java
+- src/main/java/com/autorentpro/ui/FleetView.java
